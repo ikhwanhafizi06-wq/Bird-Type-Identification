@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Dashboard - Bird Type Identification</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-dove"></i>
+        BIRD TYPE IDENTIFICATION
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/admin">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+        </a>
+
+        <a href="/report">
+            <i class="fa-solid fa-chart-column"></i>
+            Report
+        </a>
+
+        <a href="/manage-dataset">
+            <i class="fa-solid fa-database"></i>
+            Dataset
+        </a>
+
+ <a href="/logout" onclick="return confirm('Are you sure want to logout?');">
+    <i class="fa-solid fa-right-from-bracket"></i>
+    Logout
+</a>
+
+    </div>
+
+</nav>
+
+
+    <!-- DASHBOARD -->
+
+    <div class="dashboard-container">
+
+       <div class="dashboard-header admin-hero">
+
+    <div class="hero-content">
+
+        <span class="hero-small-title">
+            ADMIN DASHBOARD
+        </span>
+
+        <h1>
+            Welcome, {{ username }}!
+        </h1>
+
+        <p>
+            Manage the bird identification system
+            easily through the admin dashboard.
+        </p>
+
+    </div>
+
+
+   <div class="admin-hero-icon">
+
+    <i class="fa-solid fa-user-shield"></i>
+
+</div>
+
+</div>
+
+
+        <!-- MENU CARDS -->
+
+        <div class="dashboard-cards">
+
+
+            <!-- REPORT -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    📊
+                </div>
+
+                <h2>Report</h2>
+
+                <p>
+                    View detailed bird detection
+                    records and confidence results.
+                </p>
+
+                <a href="/report" class="dashboard-btn">
+                    View Report
+                </a>
+
+            </div>
+
+
+            <!-- DATASET -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    🐦
+                </div>
+
+                <h2>Manage Dataset</h2>
+
+                <p>
+                    Add or remove bird images
+                    used for AI model training.
+                </p>
+
+                <a href="/manage-dataset" class="dashboard-btn">
+                    Manage Dataset
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>User Dashboard - Bird Type Identification</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-dove"></i>
+
+        BIRD TYPE IDENTIFICATION
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="/dashboard" class="active">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+        </a>
+
+        <a href="/detect">
+            <i class="fa-solid fa-camera"></i>
+            Detect Bird
+        </a>
+
+        <a href="/report">
+            <i class="fa-solid fa-chart-column"></i>
+            Report
+        </a>
+
+        <a href="/about">
+            <i class="fa-solid fa-circle-info"></i>
+            About
+        </a>
+
+        <a href="/logout"
+           onclick="return confirm('Are you sure want to logout?');">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<div class="user-dashboard">
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <div class="user-hero">
+
+        <div class="hero-content">
+
+            <span class="hero-small-title">
+                BIRD TYPE IDENTIFICATION
+            </span>
+
+            <h1>
+                Welcome, {{ username }}!
+            </h1>
+
+            <p>
+                Identify bird types easily using our
+                machine learning-powered system.
+            </p>
+
+
+            <a href="/detect" class="hero-detect-btn">
+
+                <i class="fa-solid fa-camera"></i>
+
+                Start Detection
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-bird-icon">
+
+            <i class="fa-solid fa-dove"></i>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         QUICK ACCESS
+    ========================= -->
+
+    <div class="dashboard-section-title">
+
+        <h2>Quick Access</h2>
+
+        <p>
+            Choose a function to get started.
+        </p>
+
+    </div>
+
+
+    <div class="user-dashboard-grid">
+
+
+        <!-- DETECT BIRD -->
+
+        <div class="user-dashboard-card main-dashboard-card">
+
+            <div class="dashboard-card-icon">
+
+                <i class="fa-solid fa-camera"></i>
+
+            </div>
+
+
+            <h2>
+                Detect Bird
+            </h2>
+
+
+            <p>
+                Upload an image of a bird and let the
+                system identify its type.
+            </p>
+
+
+            <a href="/detect"
+               class="dashboard-action-btn">
+
+                Start Detection
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- MY REPORTS -->
+
+        <div class="user-dashboard-card">
+
+            <div class="dashboard-card-icon">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+            </div>
+
+
+            <h2>
+                My Reports
+            </h2>
+
+
+            <p>
+                View your previous bird identification
+                records and results.
+            </p>
+
+
+            <a href="/report"
+               class="dashboard-action-btn">
+
+                View Reports
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ABOUT SYSTEM -->
+
+        <div class="user-dashboard-card">
+
+            <div class="dashboard-card-icon">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+            </div>
+
+
+            <h2>
+                About System
+            </h2>
+
+
+            <p>
+                Learn more about the Bird Type
+                Identification system.
+            </p>
+
+
+            <a href="/about"
+               class="dashboard-action-btn">
+
+                Learn More
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         SUPPORTED BIRD TYPES
+    ========================= -->
+
+    <div class="supported-birds-card">
+
+
+        <div class="supported-birds-title">
+
+            <div class="supported-icon">
+
+                <i class="fa-solid fa-dove"></i>
+
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Supported Bird Types
+                </h2>
+
+                <p>
+                    The system currently supports five bird types.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="bird-type-list">
+
+
+            <!-- CROW -->
+
+            <div class="bird-type-item">
+
+                <i class="fa-solid fa-crow"></i>
+
+                <span>
+                    Crow
+                </span>
+
+            </div>
+
+
+
+            <!-- DUCK -->
+
+            <div class="bird-type-item">
+
+                <i class="fa-solid fa-feather"></i>
+
+                <span>
+                    Duck
+                </span>
+
+            </div>
+
+
+
+            <!-- EAGLE -->
+
+            <div class="bird-type-item">
+
+                <i class="fa-solid fa-feather"></i>
+
+                <span>
+                    Eagle
+                </span>
+
+            </div>
+
+
+
+            <!-- OWL -->
+
+            <div class="bird-type-item">
+
+                <i class="fa-solid fa-feather"></i>
+
+                <span>
+                    Owl
+                </span>
+
+            </div>
+
+
+
+            <!-- PARROT -->
+
+            <div class="bird-type-item">
+
+                <i class="fa-solid fa-feather"></i>
+
+                <span>
+                    Parrot
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+<!-- HOW IT WORKS -->
+
+<section class="how-it-works">
+
+    <div class="how-header">
+
+        <h2>How It Works</h2>
+
+        <p>
+            Identify a bird in three simple steps.
+        </p>
+
+    </div>
+
+
+    <div class="steps-container">
+
+
+        <!-- STEP 1 -->
+
+        <div class="step-card">
+
+            <div class="step-icon">
+                <i class="fa-solid fa-upload"></i>
+            </div>
+
+            <div class="step-content">
+
+                <span class="step-number">01</span>
+
+                <h3>Upload Image</h3>
+
+                <p>
+                    Upload a clear image of the bird
+                    you want to identify.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 2 -->
+
+        <div class="step-card">
+
+            <div class="step-icon">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <div class="step-content">
+
+                <span class="step-number">02</span>
+
+                <h3>AI Processing</h3>
+
+                <p>
+                    The machine learning model
+                    processes the uploaded image.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 3 -->
+
+        <div class="step-card">
+
+            <div class="step-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <div class="step-content">
+
+                <span class="step-number">03</span>
+
+                <h3>View Result</h3>
+
+                <p>
+                    View the identified bird type,
+                    confidence and information.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</div>
+
+
+</body>
+
+</html>

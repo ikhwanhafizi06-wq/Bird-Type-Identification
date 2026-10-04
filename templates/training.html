@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Train Model - Bird Type Identification</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+    
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-dove"></i>
+
+        BIRD TYPE IDENTIFICATION
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="/admin">
+
+            <i class="fa-solid fa-house"></i>
+
+            Dashboard
+
+        </a>
+
+
+        <a href="/report">
+
+            <i class="fa-solid fa-chart-column"></i>
+
+            Report
+
+        </a>
+
+
+        <a href="/manage-dataset">
+
+            <i class="fa-solid fa-database"></i>
+
+            Dataset
+
+        </a>
+
+
+        <a href="/logout"
+           onclick="return confirm('Are you sure want to logout?');">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<div class="training-container">
+
+    <div class="training-box">
+
+        <div class="training-icon">
+
+            <i class="fa-solid fa-brain"></i>
+
+        </div>
+
+        <h1>Train AI Model</h1>
+
+        <p>
+            Train the bird identification model using the current dataset.
+        </p>
+
+
+        <!-- SUCCESS MESSAGE -->
+
+        {% if status == "success" %}
+
+        <div class="training-success">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <div>
+                <strong>Training Completed!</strong>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- ERROR MESSAGE -->
+
+        {% if status == "error" %}
+
+        <div class="training-error">
+
+            <i class="fa-solid fa-circle-xmark"></i>
+
+            <div>
+                <strong>Training Failed</strong>
+
+                <p>
+                    Something went wrong during model training.
+                </p>
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <div class="training-info">
+
+            <div>
+                <strong>Model</strong>
+                <span>MobileNetV2</span>
+            </div>
+
+            <div>
+                <strong>Bird Types</strong>
+                <span>5 Classes</span>
+            </div>
+
+            <div>
+                <strong>Dataset</strong>
+                <span>Crow, Duck, Eagle, Owl, Parrot</span>
+            </div>
+
+        </div>
+
+
+        <!-- TRAINING FORM -->
+
+        <form action="/train-model"
+              method="POST"
+              onsubmit="startTraining()">
+
+            <button type="submit"
+                    class="train-btn"
+                    id="trainButton">
+
+                <i class="fa-solid fa-play"
+                   id="trainIcon"></i>
+
+                <span id="trainText">
+                    Train Model
+                </span>
+
+            </button>
+
+        </form>
+
+
+        <!-- LOADING MESSAGE -->
+
+        <div id="trainingLoading"
+             class="training-loading"
+             style="display: none;">
+
+            <div class="loading-spinner"></div>
+
+            <strong>Training Model...</strong>
+
+            <p>
+                Please wait while the AI model is being trained.
+            </p>
+
+            <div class="loading-dots">
+                <span>.</span>
+                <span>.</span>
+                <span>.</span>
+            </div>
+
+        </div>
+
+
+        <p class="training-note">
+
+            Training may take some time depending on the dataset size.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function startTraining() {
+
+    // Disable button
+    const button = document.getElementById("trainButton");
+
+    button.disabled = true;
+
+    // Change icon
+    const icon = document.getElementById("trainIcon");
+
+    icon.className = "fa-solid fa-spinner fa-spin";
+
+    // Change text
+    const text = document.getElementById("trainText");
+
+    text.innerText = "Training Model...";
+
+    // Show loading message
+    const loading = document.getElementById("trainingLoading");
+
+    loading.style.display = "block";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

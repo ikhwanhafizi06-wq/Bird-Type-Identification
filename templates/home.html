@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bird Type Identification</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background-image: url("/static/dbd.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* DARK OVERLAY */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 35, 65, 0.48);
+            z-index: -1;
+        }
+
+        /* NAVBAR */
+
+        .home-navbar {
+            height: 75px;
+            background: rgba(8, 121, 201, 0.96);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+        }
+
+        .home-logo {
+            color: white;
+            font-size: 23px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .home-logo i {
+            margin-right: 9px;
+        }
+
+        .home-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .home-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .home-nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* MAIN */
+
+        .home-content {
+            min-height: calc(100vh - 75px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .home-box {
+            max-width: 900px;
+            padding: 45px 55px;
+        }
+
+        .home-small-title {
+            color: #dff5ff;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .home-title {
+            color: white;
+            font-size: 52px;
+            line-height: 1.15;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.35);
+        }
+
+        .home-description {
+            color: white;
+            font-size: 19px;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto 35px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+        /* BUTTON */
+
+        .start-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: #0879c9;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+            transition: 0.2s;
+        }
+
+        .start-btn:hover {
+            background: #05649f;
+            transform: translateY(-2px);
+        }
+
+        /* BOTTOM INFO */
+
+        .home-info {
+            margin-top: 55px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            min-width: 170px;
+            padding: 14px 20px;
+            background: rgba(255,255,255,0.90);
+            border-radius: 10px;
+            color: #333;
+        }
+
+        .info-item i {
+            color: #0879c9;
+            font-size: 20px;
+            margin-bottom: 7px;
+        }
+
+        .info-item h3 {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .info-item p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .home-navbar {
+                padding: 0 20px;
+            }
+
+            .home-logo {
+                font-size: 18px;
+            }
+
+            .home-nav-links {
+                gap: 15px;
+            }
+
+            .home-nav-links a {
+                font-size: 14px;
+            }
+
+            .home-box {
+                padding: 30px 15px;
+            }
+
+            .home-title {
+                font-size: 36px;
+            }
+
+            .home-description {
+                font-size: 16px;
+            }
+
+            .home-info {
+                margin-top: 35px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="home-navbar">
+
+        <div class="home-logo">
+            <i class="fa-solid fa-dove"></i>
+            BIRD TYPE IDENTIFICATION
+        </div>
+
+        <div class="home-nav-links">
+            <a href="/about">About</a>
+            <a href="/login">Login</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HOME CONTENT -->
+
+    <main class="home-content">
+
+        <div class="home-box">
+
+            <div class="home-small-title">
+                BIRD IDENTIFICATION SYSTEM
+            </div>
+
+            <h1 class="home-title">
+                IMAGE-BASED BIRD TYPE<br>
+                IDENTIFICATION SYSTEM
+            </h1>
+
+            <p class="home-description">
+                Identify birds easily using an image.
+                Upload a bird image and get the result
+                with confidence percentage and bird information.
+            </p>
+
+            <a href="/login" class="start-btn">
+                <i class="fa-solid fa-dove"></i>
+                START IDENTIFYING
+            </a>
+
+
+            <!-- INFO -->
+
+            <div class="home-info">
+
+                <div class="info-item">
+                    <i class="fa-solid fa-image"></i>
+                    <h3>Upload Image</h3>
+                    <p>Upload a bird image</p>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-brain"></i>
+                    <h3>AI Identification</h3>
+                    <p>Classify bird type</p>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h3>Quick Result</h3>
+                    <p>View confidence result</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

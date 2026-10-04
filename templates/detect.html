@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Detect Bird - Bird Type Identification</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-dove"></i>
+        BIRD TYPE IDENTIFICATION
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+        </a>
+
+        <a href="/detect" class="active">
+            <i class="fa-solid fa-camera"></i>
+            Detect Bird
+        </a>
+
+        <a href="/report">
+            <i class="fa-solid fa-chart-column"></i>
+            Report
+        </a>
+
+        <a href="/about">
+            <i class="fa-solid fa-circle-info"></i>
+            About
+        </a>
+
+        <a href="/logout"
+           onclick="return confirm('Are you sure you want to logout?');">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- MAIN CONTAINER -->
+<div class="detect-container">
+
+
+    <!-- =========================
+         DETECT CARD
+    ========================== -->
+
+    <div class="detect-box">
+
+        <div class="detect-icon">
+            <i class="fa-solid fa-camera"></i>
+        </div>
+
+        <h1>Detect Bird</h1>
+
+        <p>
+            Upload an image of a bird to identify its type.
+        </p>
+
+        
+
+
+        <form action="/detect"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <label class="image-upload">
+
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                <span>Choose Bird Image</span>
+
+                <input type="file"
+                       name="image"
+                       accept="image/*"
+                       required>
+
+            </label>
+
+
+            <button type="submit" class="detect-btn">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Detect Bird
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- =========================
+         DETECTION RESULT
+    ========================== -->
+
+    {% if bird %}
+
+    <div class="result-card">
+
+        <h2>Detection Result</h2>
+
+
+        <!-- RESULT IMAGE -->
+
+        <img src="{{ image }}"
+             class="result-image"
+             alt="Detected Bird">
+
+
+        <!-- RESULT INFORMATION -->
+
+        <div class="result-info">
+
+
+            <!-- BIRD TYPE -->
+
+            <div class="result-detail">
+
+                <i class="fa-solid fa-dove"></i>
+
+                <div>
+
+                    <strong>Bird Type</strong>
+
+                    <p>
+                        {{ bird }}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONFIDENCE -->
+
+            <div class="result-detail">
+
+                <i class="fa-solid fa-chart-simple"></i>
+
+                <div>
+
+                    <strong>Confidence</strong>
+
+                    <p>
+                        {{ confidence }}%
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="result-detail">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <div>
+
+                    <strong>Description</strong>
+
+                    <p>
+                        {{ description }}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- HABITAT -->
+
+            <div class="result-detail">
+
+                <i class="fa-solid fa-tree"></i>
+
+                <div>
+
+                    <strong>Habitat</strong>
+
+                    <p>
+                        {{ habitat }}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+                </div>
+
+
+        <!-- PRINT RESULT BUTTON -->
+
+        <div class="print-result-container">
+
+           <a href="/download-result"
+   class="print-result-btn"
+   onclick="return confirm('Do you want to download this result as PDF?');">
+
+    <i class="fa-solid fa-print"></i>
+
+    Print Result
+
+        </a>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+
+</div>
+
+
+</body>
+</html>

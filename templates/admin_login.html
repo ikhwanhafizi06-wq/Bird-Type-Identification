@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Login - Bird Type Identification</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        BIRD TYPE IDENTIFICATION
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/about">About</a>
+
+    </div>
+
+</nav>
+
+
+<div class="login-container">
+
+    <div class="login-box">
+
+        <div class="login-icon">
+            <i class="fa-solid fa-user-shield"></i>
+        </div>
+
+        <h1>Admin Login</h1>
+
+        <p>
+            Login to your administrator account
+        </p>
+
+
+        {% if error %}
+
+        <div class="error">
+            {{ error }}
+        </div>
+
+        {% endif %}
+
+
+        <form method="POST" action="/admin-login">
+
+            <label>
+                Username
+            </label>
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-user"></i>
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter your username"
+                    required>
+
+            </div>
+
+
+            <label>
+                Password
+            </label>
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required>
+
+            </div>
+
+
+            <button type="submit" class="btn">
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+
+            </button>
+
+        </form>
+
+
+        <div class="register-link">
+
+            <p>
+                Are you a user?
+                <a href="/login">User Login</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

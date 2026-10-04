@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>User Login - Bird Type Identification</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        BIRD TYPE IDENTIFICATION
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/about">About</a>
+
+    </div>
+
+</nav>
+
+
+<div class="login-container">
+
+    <div class="login-box">
+
+        <!-- USER ICON -->
+
+        <div class="login-icon">
+
+            <i class="fa-solid fa-dove"></i>
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h1>Welcome Back</h1>
+
+        <p>
+            Login to your account
+        </p>
+
+
+        <!-- ERROR -->
+
+        {% if error %}
+
+        <div class="error">
+
+            {{ error }}
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- LOGIN FORM -->
+
+        <form method="POST" action="/login">
+
+            <!-- USERNAME -->
+
+            <label>
+                Username
+            </label>
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-user"></i>
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter your username"
+                    required>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <label>
+                Password
+            </label>
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required>
+
+            </div>
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button type="submit" class="btn">
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+
+                Login
+
+            </button>
+
+        </form>
+
+
+        <!-- REGISTER -->
+
+        <div class="register-link">
+
+            <p>
+
+                Don't have an account?
+
+                <a href="/register">
+                    Register
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <!-- DIVIDER -->
+
+        <div class="login-divider">
+
+            <span>OR</span>
+
+        </div>
+
+
+        <!-- ADMIN LOGIN -->
+
+        <a href="/admin-login"
+           class="admin-login-btn">
+
+            <i class="fa-solid fa-user-shield"></i>
+
+            Login as Admin
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

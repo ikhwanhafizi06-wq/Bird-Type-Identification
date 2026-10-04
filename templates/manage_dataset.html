@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Manage Dataset - Bird Type Identification</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-dove"></i>
+
+        BIRD TYPE IDENTIFICATION
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="/admin">
+
+            <i class="fa-solid fa-house"></i>
+
+            Dashboard
+
+        </a>
+
+
+        <a href="/report">
+
+            <i class="fa-solid fa-chart-column"></i>
+
+            Report
+
+        </a>
+
+
+        <a href="/manage-dataset">
+
+            <i class="fa-solid fa-database"></i>
+
+            Dataset
+
+        </a>
+
+
+        <a href="/logout"
+           onclick="return confirm('Are you sure want to logout?');">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     DATASET CONTAINER
+========================= -->
+
+<div class="dataset-container">
+
+
+    <!-- HEADER -->
+
+    <div class="dataset-header">
+
+        <h1>Manage Dataset</h1>
+    </div>
+
+
+
+    <!-- =========================
+         TRAINING SECTION
+    ========================= -->
+
+    <div class="training-section">
+
+        <div>
+
+            <h2>AI Model Training</h2>
+
+            <p>
+                Train the AI model using the current bird dataset.
+            </p>
+
+        </div>
+
+
+        <a href="/training"
+           class="train-btn-small">
+
+            <i class="fa-solid fa-brain"></i>
+
+            Train Model
+
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================
+         BIRD TYPES
+    ========================= -->
+
+    <div class="bird-types">
+
+
+        <!-- =========================
+             CROW
+        ========================= -->
+
+        <div class="bird-type-card">
+
+            <div class="dataset-icon">
+                🐦
+            </div>
+
+
+            <h2>Crow</h2>
+
+            <p>
+                Manage Crow dataset images.
+            </p>
+
+
+            <div class="dataset-card-buttons">
+
+                <a href="/manage-dataset/Crow"
+                   class="dashboard-btn">
+
+                    View Dataset
+
+                </a>
+
+            </div>
+
+
+            <button type="button"
+                    class="details-bird-btn"
+                    onclick="openBirdDetails('Crow')">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                View Details
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =========================
+             DUCK
+        ========================= -->
+
+        <div class="bird-type-card">
+
+            <div class="dataset-icon">
+                🦆
+            </div>
+
+
+            <h2>Duck</h2>
+
+            <p>
+                Manage Duck dataset images.
+            </p>
+
+
+            <div class="dataset-card-buttons">
+
+                <a href="/manage-dataset/Duck"
+                   class="dashboard-btn">
+
+                    View Dataset
+
+                </a>
+
+            </div>
+
+
+            <button type="button"
+                    class="details-bird-btn"
+                    onclick="openBirdDetails('Duck')">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                View Details
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =========================
+             EAGLE
+        ========================= -->
+
+        <div class="bird-type-card">
+
+            <div class="dataset-icon">
+                🦅
+            </div>
+
+
+            <h2>Eagle</h2>
+
+            <p>
+                Manage Eagle dataset images.
+            </p>
+
+
+            <div class="dataset-card-buttons">
+
+                <a href="/manage-dataset/Eagle"
+                   class="dashboard-btn">
+
+                    View Dataset
+
+                </a>
+
+            </div>
+
+
+            <button type="button"
+                    class="details-bird-btn"
+                    onclick="openBirdDetails('Eagle')">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                View Details
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =========================
+             OWL
+        ========================= -->
+
+        <div class="bird-type-card">
+
+            <div class="dataset-icon">
+                🦉
+            </div>
+
+
+            <h2>Owl</h2>
+
+            <p>
+                Manage Owl dataset images.
+            </p>
+
+
+            <div class="dataset-card-buttons">
+
+                <a href="/manage-dataset/Owl"
+                   class="dashboard-btn">
+
+                    View Dataset
+
+                </a>
+
+            </div>
+
+
+            <button type="button"
+                    class="details-bird-btn"
+                    onclick="openBirdDetails('Owl')">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                View Details
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =========================
+             PARROT
+        ========================= -->
+
+        <div class="bird-type-card">
+
+            <div class="dataset-icon">
+                🦜
+            </div>
+
+
+            <h2>Parrot</h2>
+
+            <p>
+                Manage Parrot dataset images.
+            </p>
+
+
+            <div class="dataset-card-buttons">
+
+                <a href="/manage-dataset/Parrot"
+                   class="dashboard-btn">
+
+                    View Dataset
+
+                </a>
+
+            </div>
+
+
+            <button type="button"
+                    class="details-bird-btn"
+                    onclick="openBirdDetails('Parrot')">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                View Details
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     BIRD DETAILS / EDIT POPUP
+========================= -->
+
+<div id="birdDetailsModal"
+     class="bird-modal">
+
+
+    <div class="bird-modal-content">
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button type="button"
+                class="modal-close"
+                onclick="closeBirdDetails()">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+
+        <!-- =========================
+             VIEW MODE
+        ========================= -->
+
+        <div id="viewMode">
+
+
+            <h2 id="modalBirdName"></h2>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="modal-info">
+
+                <h3>
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    Description
+
+                </h3>
+
+
+                <p id="modalDescription">
+
+                    Loading...
+
+                </p>
+
+            </div>
+
+
+
+            <!-- HABITAT -->
+
+            <div class="modal-info">
+
+                <h3>
+
+                    <i class="fa-solid fa-tree"></i>
+
+                    Habitat
+
+                </h3>
+
+
+                <p id="modalHabitat">
+
+                    Loading...
+
+                </p>
+
+            </div>
+
+
+
+            <!-- EDIT BUTTON -->
+
+            <button type="button"
+                    class="edit-details-btn"
+                    onclick="showEditMode()">
+
+                <i class="fa-solid fa-pen"></i>
+
+                Edit Details
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             EDIT MODE
+        ========================= -->
+
+        <div id="editMode"
+             style="display: none;">
+
+
+            <h2>
+
+                Edit
+
+                <span id="editBirdName"></span>
+
+            </h2>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <label>
+
+                Description
+
+            </label>
+
+
+            <textarea id="editDescription"
+                      rows="5"
+                      placeholder="Enter bird description..."></textarea>
+
+
+
+            <!-- HABITAT -->
+
+            <label>
+
+                Habitat
+
+            </label>
+
+
+            <textarea id="editHabitat"
+                      rows="4"
+                      placeholder="Enter bird habitat..."></textarea>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="edit-actions">
+
+
+                <button type="button"
+                        class="cancel-edit-btn"
+                        onclick="cancelEdit()">
+
+                    Cancel
+
+                </button>
+
+
+
+                <button type="button"
+                        class="save-edit-btn"
+                        onclick="saveBirdDetails()">
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Save Changes
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+let currentBird = "";
+
+
+
+// =========================
+// OPEN BIRD DETAILS
+// =========================
+
+async function openBirdDetails(birdType) {
+
+
+    currentBird = birdType;
+
+
+    const modal =
+        document.getElementById("birdDetailsModal");
+
+
+    const birdName =
+        document.getElementById("modalBirdName");
+
+
+    const description =
+        document.getElementById("modalDescription");
+
+
+    const habitat =
+        document.getElementById("modalHabitat");
+
+
+
+    // SHOW VIEW MODE
+
+    document.getElementById("viewMode").style.display =
+        "block";
+
+
+    // HIDE EDIT MODE
+
+    document.getElementById("editMode").style.display =
+        "none";
+
+
+
+    // SET BIRD NAME
+
+    birdName.textContent = birdType;
+
+
+
+    // SHOW LOADING
+
+    description.textContent =
+        "Loading...";
+
+
+    habitat.textContent =
+        "Loading...";
+
+
+
+    // SHOW POPUP
+
+    modal.classList.add("show");
+
+
+
+    try {
+
+
+        const response = await fetch(
+            "/bird-details/" +
+            encodeURIComponent(birdType)
+        );
+
+
+
+        const data =
+            await response.json();
+
+
+
+        // DESCRIPTION
+
+        description.textContent =
+            data.description ||
+            "No description available.";
+
+
+
+        // HABITAT
+
+        habitat.textContent =
+            data.habitat ||
+            "No habitat information available.";
+
+
+
+    }
+
+    catch (error) {
+
+
+        console.error(error);
+
+
+
+        description.textContent =
+            "Unable to load description.";
+
+
+        habitat.textContent =
+            "Unable to load habitat.";
+
+
+    }
+
+}
+
+
+
+// =========================
+// SHOW EDIT MODE
+// =========================
+
+function showEditMode() {
+
+
+    const description =
+        document.getElementById(
+            "modalDescription"
+        ).textContent;
+
+
+    const habitat =
+        document.getElementById(
+            "modalHabitat"
+        ).textContent;
+
+
+
+    // SET BIRD NAME
+
+    document.getElementById(
+        "editBirdName"
+    ).textContent =
+        currentBird;
+
+
+
+    // PUT DESCRIPTION INTO TEXTAREA
+
+    document.getElementById(
+        "editDescription"
+    ).value =
+        description;
+
+
+
+    // PUT HABITAT INTO TEXTAREA
+
+    document.getElementById(
+        "editHabitat"
+    ).value =
+        habitat;
+
+
+
+    // HIDE VIEW MODE
+
+    document.getElementById(
+        "viewMode"
+    ).style.display =
+        "none";
+
+
+
+    // SHOW EDIT MODE
+
+    document.getElementById(
+        "editMode"
+    ).style.display =
+        "block";
+
+}
+
+
+
+// =========================
+// CANCEL EDIT
+// =========================
+
+function cancelEdit() {
+
+
+    // HIDE EDIT MODE
+
+    document.getElementById(
+        "editMode"
+    ).style.display =
+        "none";
+
+
+
+    // SHOW VIEW MODE
+
+    document.getElementById(
+        "viewMode"
+    ).style.display =
+        "block";
+
+}
+
+
+
+// =========================
+// SAVE BIRD DETAILS
+// =========================
+
+async function saveBirdDetails() {
+
+
+    const description =
+        document.getElementById(
+            "editDescription"
+        ).value.trim();
+
+
+    const habitat =
+        document.getElementById(
+            "editHabitat"
+        ).value.trim();
+
+
+
+    // CHECK EMPTY
+
+    if (
+        description === "" ||
+        habitat === ""
+    ) {
+
+        alert(
+            "Please fill in both description and habitat."
+        );
+
+        return;
+
+    }
+
+
+
+    try {
+
+
+        const response = await fetch(
+
+            "/edit-bird/" +
+            encodeURIComponent(currentBird),
+
+            {
+
+                method: "POST",
+
+
+                headers: {
+
+                    "Content-Type":
+                        "application/json"
+
+                },
+
+
+                body: JSON.stringify({
+
+                    description:
+                        description,
+
+                    habitat:
+                        habitat
+
+                })
+
+            }
+
+        );
+
+
+
+        const data =
+            await response.json();
+
+
+
+        // SUCCESS
+
+        if (data.success) {
+
+
+            // UPDATE DESCRIPTION
+
+            document.getElementById(
+                "modalDescription"
+            ).textContent =
+                description;
+
+
+
+            // UPDATE HABITAT
+
+            document.getElementById(
+                "modalHabitat"
+            ).textContent =
+                habitat;
+
+
+
+            // HIDE EDIT MODE
+
+            document.getElementById(
+                "editMode"
+            ).style.display =
+                "none";
+
+
+
+            // SHOW VIEW MODE
+
+            document.getElementById(
+                "viewMode"
+            ).style.display =
+                "block";
+
+
+
+            alert(
+                "Bird details updated successfully."
+            );
+
+
+        }
+
+        else {
+
+
+            alert(
+                "Failed to update bird details."
+            );
+
+
+        }
+
+
+    }
+
+    catch (error) {
+
+
+        console.error(error);
+
+
+        alert(
+            "Something went wrong while saving."
+        );
+
+
+    }
+
+}
+
+
+
+// =========================
+// CLOSE POPUP
+// =========================
+
+function closeBirdDetails() {
+
+
+    document
+        .getElementById(
+            "birdDetailsModal"
+        )
+        .classList.remove("show");
+
+
+}
+
+
+
+// =========================
+// CLICK OUTSIDE POPUP
+// =========================
+
+window.onclick = function(event) {
+
+
+    const modal =
+        document.getElementById(
+            "birdDetailsModal"
+        );
+
+
+    if (event.target === modal) {
+
+        closeBirdDetails();
+
+    }
+
+};
+
+
+
+// =========================
+// ESC KEY
+// =========================
+
+window.addEventListener(
+    "keydown",
+    function(event) {
+
+
+        if (event.key === "Escape") {
+
+            closeBirdDetails();
+
+        }
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>

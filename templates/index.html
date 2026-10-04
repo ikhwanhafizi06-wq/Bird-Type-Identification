@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Bird Type Detection System</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <nav>
+
+<a href="/dashboard">
+    Dashboard
+</a>
+
+<a href="/report">
+    Report
+</a>
+
+<a href="/about">
+    About</a>
+</nav>
+
+
+<div class="container">
+
+<h1>
+Bird Type Detection System
+</h1>
+
+<p class="subtitle">
+Image Based Bird Identification Using Machine Learning
+</p>
+
+<div class="card">
+
+<form method="POST" enctype="multipart/form-data">
+
+<label>Upload Bird Image</label>
+<input type="file" name="image" required>
+
+<button type="submit">Detect Bird</button>
+
+
+</form>
+
+
+
+{% if image %}
+
+
+<div class="result">
+
+
+<h2>
+Detection Result
+</h2>
+
+
+<img 
+src="{{ image }}"
+class="bird-image">
+
+
+<h3>
+Bird Type:
+<span>{{ bird }}</span>
+</h3>
+
+
+<h3>
+Confidence:
+<span>{{ confidence }}%</span>
+</h3>
+
+
+</div>
+
+
+{% endif %}
+
+
+</div>
+</div>
+
+
+</body>
+</html>

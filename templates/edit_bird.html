@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Bird</title>
+</head>
+
+<body>
+
+<h1>Edit Bird</h1>
+
+<form method="POST">
+
+    <label>Bird Type:</label>
+    <br>
+
+    <input
+        type="text"
+        name="bird_type"
+        value="{{ bird[1] }}"
+        required
+    >
+
+    <br><br>
+
+    <label>Description:</label>
+    <br>
+
+    <textarea
+        name="description"
+        required
+    >{{ bird[2] }}</textarea>
+
+    <br><br>
+
+    <label>Habitat:</label>
+    <br>
+
+    <textarea
+        name="habitat"
+        required
+    >{{ bird[3] }}</textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Save Changes
+    </button>
+
+</form>
+
+<br>
+
+<a href="/manage-birds">
+    Back
+</a>
+
+</body>
+
+</html>

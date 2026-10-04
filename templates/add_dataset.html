@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Add {{ bird_type }} Image</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-dove"></i>
+
+        BIRD TYPE IDENTIFICATION
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="/admin">
+
+            <i class="fa-solid fa-house"></i>
+
+            Dashboard
+
+        </a>
+
+
+        <a href="/report">
+
+            <i class="fa-solid fa-chart-column"></i>
+
+            Report
+
+        </a>
+
+
+        <a href="/manage-dataset">
+
+            <i class="fa-solid fa-database"></i>
+
+            Dataset
+
+        </a>
+
+
+        <a href="/logout"
+           onclick="return confirm('Are you sure want to logout?');">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<div class="add-dataset-container">
+
+    <div class="add-dataset-box">
+
+        <div class="upload-icon">
+
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+
+        </div>
+
+        <h1>Add {{ bird_type }} Image</h1>
+
+        <p>
+            Upload an image to the {{ bird_type }} dataset.
+        </p>
+
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            <label class="file-label">
+
+            <i class="fa-solid fa-images"></i>
+            
+            Choose Images
+
+    <input 
+        type="file" 
+        name="images" 
+        accept="image/*" 
+        multiple
+        required
+    >
+
+            </label>
+
+
+            <button
+                type="submit"
+                class="upload-btn">
+
+                <i class="fa-solid fa-upload"></i>
+
+                Add Image
+
+            </button>
+
+        </form>
+
+
+        <a href="/manage-dataset/{{ bird_type }}"
+           class="back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Dataset
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
